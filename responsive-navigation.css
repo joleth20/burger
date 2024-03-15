@@ -1,0 +1,143 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    height: 100vh;
+    width: 100vw;
+    /* layout */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.main .header{
+    background-color: yellow;
+    height: 100px;
+    width: 100%;
+    display: flex; 
+    align-items: center;
+    justify-content: space-around;  
+}
+
+.main .header .menu-container{
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;   
+}
+
+
+.main .header .menu-container li a{
+    text-decoration: none;
+    color: black;
+}
+
+.main .header .menu-container li a:after{
+    content: "";
+    display: block;
+    background-color: white;
+    height: 2px;
+    width: 100%;
+    transition: transform 0.3s ease-in;
+    transform: scale(0,1);
+    transform-origin: center;
+}
+
+
+.main .header .menu-container li a:hover:after{
+    transform: scale(1,1);
+}
+
+.main .header .hamburger >div{
+    height: 5px;
+    width: 30px;
+    background-color: black;
+    transition: 0.4s;
+    margin: 6px 0px;
+   display: none;
+}
+
+.main .header .hamburger.active .bar-1{
+    transform: translate(0, 11px) rotate(-45deg);
+}
+
+.main .header .hamburger.active .bar-2{
+    opacity: 0;
+}
+
+.main .header .hamburger.active .bar-3{
+    transform: translate(0, -11px) rotate(45deg);
+}
+
+
+.main .content{
+    height: 100%;
+    width: 100%;
+}
+
+@media (max-width:400px){
+ 
+    .main .header {
+      
+        justify-content: flex-end;
+    }
+
+
+    .main .header .hamburger{
+        padding: 0px 20px;
+    }
+
+.main .header .hamburger >div{
+display: block;
+}
+
+    .main .header .menu-container {
+      position: fixed;
+      background-color: yellow;
+      top: 85px;
+      width: 100%;
+      height: 90%;
+      flex-direction: column;
+    }
+
+    .main .header .menu-container li{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main .header .menu-container li a:after{
+       all: unset;
+    }
+    
+    .main .header .menu-container li:hover{
+        background-color: goldenrod;
+    }
+    .main .header .menu-container.show{
+        transform: scale(1,1);
+        transition: transform 600ms ease;
+        transform-origin: right;
+    }
+
+    
+    .main .header .menu-container.hide{
+        transform: scale(0,1);
+    }
+
+
+    .main .header .menu-container li {
+     width: 100%;
+     height: 100%;
+     
+
+      }
+
+  
+
+}
